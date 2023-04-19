@@ -1,0 +1,28 @@
+name: Workflow Watcher
+description: Pause a workflow and wait for another workflow to finish first
+branding:
+  icon: pause
+  color: yellow
+inputs:
+  repository-name:
+    description: Repository Name
+    required: true
+  repository-owner:
+    description: Repository Owner
+    required: true
+  head-sha:
+    description: Commit Sha
+    required: true
+  base-branch:
+    description: Base branch
+    required: true
+  polling-interval:
+    description: determines how often a poll occurs to check for a updates from Github API (value in seconds)
+    required: false
+    default: 30
+  secret:
+    description: Secret
+    required: true
+runs:
+  using: docker
+  image: docker://ghcr.io/mostafahussein/workflow-watcher:1.0.0
